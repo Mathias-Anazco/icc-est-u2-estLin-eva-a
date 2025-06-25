@@ -6,7 +6,7 @@ public class LogicaClasificacion {
 
     /**
      * Invierte el contenido de una cola de nombres utilizando una pila auxiliar.
-     * 
+     * Ñ.,
      * Ejemplo:
      * Entrada: ["Ana", "Luis", "Pedro"]
      * Salida: ["Pedro", "Luis", "Ana"]
@@ -16,7 +16,16 @@ public class LogicaClasificacion {
      */
     public Queue<String> invertirColaNombres(Queue<String> cola) {
 
-        return new LinkedList<>(Arrays.asList()); // Simulación de resultado
+        Queue<String> invertido = new LinkedList<>();
+        Stack<String> pila = new Stack<>();
+        while(!cola.isEmpty()){
+            pila.push(cola.remove());
+        }
+        while(!pila.isEmpty()){
+            invertido.add(pila.pop());
+        }
+
+        return invertido; // Simulación de resultado
     }
 
     /**
@@ -32,7 +41,20 @@ public class LogicaClasificacion {
      * @return true si forman un palíndromo, false si no
      */
     public boolean verificarPalindromoCola(Queue<String> cola) {
-
+        Stack<String> pila = new Stack<>();
+        LinkedList<String> aux = new LinkedList<>();
+        while(!cola.isEmpty()){
+            aux.add(cola.remove());
+        }
+        for(String s : aux){
+            pila.push(s);
+        }
+        for (String s : aux){
+            if (!s.equals(pila.pop())){
+                return true;
+            }
+            return true;
+        }
         return false;
     }
 
